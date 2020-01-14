@@ -249,7 +249,7 @@ class CatsTest  extends FlatSpec  with BeforeAndAfterEach {
       n <- readLn
       _ <- putStrlLn(s"Hello, $n!")
     } yield ()
-    program0.unsafeRunSync()
+//    program0.unsafeRunSync()
 
     val input = IO(Option("helloworld"))
     val program11: IO[Option[String]] = for {
@@ -304,7 +304,7 @@ class CatsTest  extends FlatSpec  with BeforeAndAfterEach {
       println("incremented: " + count.incrementAndGet); ()
     }
     val release = IO { println("decremented: " + count.decrementAndGet); () }
-    Stream.bracket(acquire)(_ => release).flatMap(_ => Stream(1,2,3) ++ err).compile.drain.unsafeRunSync()
+    //Stream.bracket(acquire)(_ => release).flatMap(_ => Stream(1,2,3) ++ err).compile.drain.unsafeRunSync()
 
     // IO
     trait Connection {
@@ -332,7 +332,7 @@ class CatsTest  extends FlatSpec  with BeforeAndAfterEach {
     // bytes: cats.effect.IO[Array[Byte]] = IO$1064869761
     import cats.Monad
     import cats.effect.Sync
-    Stream.eval(bytes).map(_.toList).compile.toVector.unsafeRunSync()
+    //Stream.eval(bytes).map(_.toList).compile.toVector.unsafeRunSync()
 
 
   }
@@ -343,7 +343,7 @@ class CatsTest  extends FlatSpec  with BeforeAndAfterEach {
     import cats.kernel.Monoid
     import cats.effect.IO
     import fs2.Stream
-    val intResult = 1 |+| 2 |+| Monoid[Int].empty
+    //val intResult = 1 |+| 2 |+| Monoid[Int].empty
 
     trait Monad2[F[_]] {
       def pure[A](a: A): F[A]
@@ -353,10 +353,10 @@ class CatsTest  extends FlatSpec  with BeforeAndAfterEach {
 
     import cats.Monad
 
-    val fm = Monad[Future]
-
-    val future = fm.flatMap(fm.pure(1))(x => fm.pure(x + 2))
-    Await.result(future, 1.second)
+//    val fm = Monad[Future]
+//
+//    val future = fm.flatMap(fm.pure(1))(x => fm.pure(x + 2))
+//    Await.result(future, 1.second)
 
 
   }
@@ -388,7 +388,7 @@ class CatsTest  extends FlatSpec  with BeforeAndAfterEach {
 
   }
 
-  "Difference between Function0 vs by-name parameters" should "work sometimes" in {
+  def donotExecute(): Unit = {
     // https://stackoverflow.com/questions/46185458/scala-function0-vs-by-name-parameters
     def value: Int = ???
     def method(): Int = ???

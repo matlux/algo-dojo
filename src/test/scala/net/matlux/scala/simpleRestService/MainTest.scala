@@ -8,16 +8,16 @@ import Directives._
 
 
 class MainTest extends WordSpec with Matchers with ScalatestRouteTest {
-
-  val smallRoute = ???
-
-  "The service" should {
-
-    "return a greeting for GET requests to the root path" in {
-      // tests:
-
-    }
-
-
-  }
+//
+//  val smallRoute = ???
+//
+//  "The service" should {
+//
+//    "return a greeting for GET requests to the root path" in {
+//      // tests:
+//
+//    }
+//
+//
+//  }
 }
